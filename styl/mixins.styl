@@ -1,0 +1,28 @@
+vendor(property,arg)
+	{property} arg
+	 -webkit-{property} arg
+	 -moz-{property} arg
+
+border-radius(radius=5px)
+		vendor('border-radius',radius)
+		
+transition(args)
+	vendor('transition',args)
+	
+test(var)
+	if var > 34
+		padding var px
+	else
+		padding var*3 px
+		
+	
+ 	
+
+cf()
+	zoom 1
+	&:after
+	&:before
+		content ""
+		display table
+	&:after
+		clear both
