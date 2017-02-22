@@ -5,13 +5,9 @@ export default class CountriesForm extends Component {
 	addCountry(event){
 		event.preventDefault();
 		var countryName = this.refs.country.value.trim();
-
-		Countries.insert({
-			country:countryName,
-			createdAt: new Date()
-		});	
-
+		Meteor	.call('addCountry',countryName,()=>{
 		this.refs.country.value = "";
+		});
 	}
 	render(){
 		return(

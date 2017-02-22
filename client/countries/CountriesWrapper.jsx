@@ -7,7 +7,18 @@ import CountrySingle from './CountrySingle.jsx';
 Countries = new Mongo.Collection('countries');
 
 export default class CountriesWrapper extends TrackerReact(React.Component){
+	constructor(){
+		super();
+		this.state = {
+			subscription:{
+				countries:Meteor.subscribe('allCountries')
+			}
+		}
+	}
 
+	componentWillUnmount() {
+		this.state.subscription.countries.stop();
+	}
 	countries(){
 		return Countries.find().fetch();
 	}
@@ -21,8 +32,10 @@ export default class CountriesWrapper extends TrackerReact(React.Component){
 			<div>
 			<h1>Countries</h1>
 			<CountriesForm/>
-			<ul>
-			<CountrySingle eachCountry={countriesView[0]}/>
+			<ul className="countries">
+			{this.countries().map( (country)=>{
+			return <CountrySingle key={country._id} eachCountry={country}/>
+			})}
 			</ul>
 			</div>
 			)
