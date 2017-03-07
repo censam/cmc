@@ -1,11 +1,11 @@
 import React from 'react';
 import AccountsUI from '../AccountsUI.jsx';
-export const MainLayout  = (props) => (
+export const AdminMainLayout  = (props) => (
 	<div className = "main-layout">
 		<header>
-			<h2>CMC Frontend</h2>
+			<h2>CMC Admin</h2>
 			<nav>
-				<a href="/about" >About</a>
+				{/* <a href="/about" >About</a> */ } 
 				<AccountsUI/>
 			</nav>
 		</header>

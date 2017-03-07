@@ -1,5 +1,7 @@
-normalize-css()
-
+@import 'nib'
+normalize-css() 
+normalize-html5()
+typographic()
 // Material Shadows
 shadow-level(l = 1)
     if l == -1
@@ -18,7 +20,7 @@ shadow-level(l = 1)
         box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 
 // Common Transition
-trans($sec = 0.3s)
+trans($sec = 0.5s)
     transition: all $sec ease
 // Grid
 $xsmall = 340px
@@ -32,10 +34,10 @@ black = #222
 grey = #F69997
 light-grey = #EEE
 purp = #50514F
-dark-purp = #82D8D8
+dark-purp = #78C8B4
 // dark-purp = #82D8D8
 red = #F25F5C
-teal = #82D8D8
+teal = #78C8B4
 dark-teal = #66A6A6
 green = #70C1B3
 blue = #1E6686
@@ -68,6 +70,8 @@ social = {
 $side-nav = 100px
 $side-nav-large = 200px
 
+t-headers(futura)
+
 html
     box-sizing: border-box
 
@@ -75,9 +79,13 @@ html
     box-sizing: inherit
 
 body
-    background light-grey
-    padding: 70px 0 150px
-    font-family: 'Open Sans', sans-serif
+    
+    padding 70px 0 150px
+    font-family 'Open Sans', sans-serif
+    +below(600px)
+            background yellow
+    +above(800px)
+            background light-grey
 
 header
     color #FFF 
@@ -212,7 +220,7 @@ input::-moz-placeholder
 input:-ms-input-placeholder
     color: #ddd
 
-.new-resolution,.new-country
+.new-resolution,.new-country,.new-status
     transition all 0.3s cubic-bezier(0.86, 0, 0.07, 1)
     shadow-level(3)
     &:hover
@@ -236,7 +244,7 @@ input:-ms-input-placeholder
         border none
         padding 30px
 
-.resolutions,.countries
+.status,.countries
     list-style none
     padding 0
     margin 40px 0 
@@ -248,7 +256,7 @@ input:-ms-input-placeholder
         input
             margin-right 10px 
         &.checked
-            color #CCC 
+            color #44a2d6 
         button
             padding 10px
             margin-left 40px  
@@ -308,13 +316,13 @@ input:-ms-input-placeholder
                 border-left 10px solid teal
         
 .completed
-    color #FFF
-    background teal
-    border-radius 5px
-    padding 5px
-    margin-left 20px 
-    animation complete 0.6s ease
-    font-size 0.6em 
+        color #FFF
+        background teal
+        border-radius 5px
+        padding 5px
+        margin-left 20px 
+        animation complete 0.6s ease
+        font-size 0.6em 
     
 #login-dropdown-list
     right -1px

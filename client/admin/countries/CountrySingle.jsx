@@ -3,17 +3,16 @@ import React, {Component} from 'react';
 
 export default class CountrySingle extends Component{
 	toggleChecked(){
-			Meteor	.call('toggleCountry',this.props.eachCountry._id,this.props.eachCountry.active);
+			Meteor	.call('toggleCountry',this.props.eachCountry);
 	}
 	deleteCountry(){
-			Meteor	.call('delCountry',this.props.eachCountry._id);
+			Meteor	.call('delCountry',this.props.eachCountry);
 	}
 	render(){
 		return(
-
 			<li>
 			<input type="checkbox" readOnly={true} checked={this.props.eachCountry.active} onClick={this.toggleChecked.bind(this)} />
-			<a href={"/countryies/"+this.props.eachCountry._id}> {this.props.eachCountry.country}</a>
+			<a href={"/countries/"+this.props.eachCountry._id}>{this.props.eachCountry.country}</a>
 			<button className="btn-cancel" onClick={this.deleteCountry.bind(this)}>&times;</button>
 			</li>
 			)

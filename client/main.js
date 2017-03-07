@@ -1,8 +1,5 @@
-import { Template } from 'meteor/templating';
+import  React, { Component } from 'react';	
 import { ReactiveVar } from 'meteor/reactive-var';
-import  React from 'react';
-
-import './main.html';
-
-
-
+import { Meteor } from 'meteor/meteor';
+import { render } from 'react-dom';
+ 	

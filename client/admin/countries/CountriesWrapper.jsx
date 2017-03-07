@@ -26,7 +26,10 @@ export default class CountriesWrapper extends TrackerReact(React.Component){
 	render() {
 			let countriesView = this.countries();	
 			if(countriesView.length == 0){
-				return (<div>Loading...</div>);
+				return (<div>
+					<h1>Countries</h1>
+					<CountriesForm/>
+					</div>);
 			}
 		return(
 			<div>
